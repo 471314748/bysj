@@ -1,0 +1,83 @@
+
+.container {
+   /* padding: 100px;*/
+   border: 2px solid #eee;
+ 
+}
+
+.box {
+    position: relative;
+    width: 420px;
+    height: 420px;
+}
+
+.smallBox {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background-color: #0094ff;
+}
+
+.smallBox .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: url('https://img-tmdetail.alicdn.com/tps/i4/T12pdtXaldXXXXXXXX-2-2.png');
+    display: none;
+}
+
+.smallBox img {
+    width: 420px;
+    height: 420px;
+}
+
+.bigBox {
+    position: absolute;
+    left: 101%;
+    top: 0;
+    width: 420px;
+    height: 420px;
+    overflow: hidden;
+    display: none;
+}
+
+.box ul {
+    position: absolute;
+    width: 420px;
+    height: 80px;
+    top: 100%;
+    left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.box ul li {
+    float: left;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    cursor:pointer;
+}
+
+.box ul li img{
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+.box ul li.active{
+    border:2px solid #f00;
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+}
+.box ul li.active img{
+    top: -2px;
+    left: -2px;
+}
+.bigBox img {
+    position: absolute;
+}

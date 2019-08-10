@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基于新农村建设“一村一品”电商网站设计与应用</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="css/yade.css"></script>
+    <script type="text/javascript" src="css/mdzz.css"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+	var slides = [{src: 'images/y0.jpg'}, {src: 'images/y1.jpg'}, {src: 'images/y2.jpg'}, {src: 'images/y3.jpg'},{src: 'images/y4.jpg'}, {src: 'images/y5.jpg'}, {src: 'images/y7.jpg'}, {src: 'images/y6.jpg'}]
+	var jR3DCarousel;
+	var carouselProps =  {
+			 		  width: 1000, 				/* largest allowed width */
+					  height: 568.6, 				/* largest allowed height */
+					  slideLayout : 'fill',     /* "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio) */
+					  animation: 'slide3D', 		/* slide | scroll | fade | zoomInSlide | zoomInScroll */
+					  animationCurve: 'ease',
+					  animationDuration: 700,
+					  animationInterval: 1000,
+					  //slideClass: 'jR3DCarouselCustomSlide',
+					  autoplay: false,
+					  onSlideShow: show,		/* callback when Slide show event occurs */
+					  navigation: 'circles',	/* circles | squares */
+					  slides: slides 			/* array of images source or gets slides by 'slide' class */
+						  
+				}
+	function setUp(){
+ 		jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel(carouselProps);
+
+		$('.settings').html('<pre>$(".jR3DCarouselGallery").jR3DCarousel('+JSON.stringify(carouselProps, null, 4)+')</pre>');		
+		
+	}
+	function show(slide){
+		console.log("Slide shown: ", slide.find('img').attr('src'))
+	}
+	$('.carousel-props input').change(function(){
+		if(isNaN(this.value))
+			carouselProps[this.name] = this.value || null; 
+		else
+			carouselProps[this.name] = Number(this.value) || null; 
+		
+		for(var i = 0; i < 999; i++)
+	     clearInterval(i);
+		$('.jR3DCarouselGallery').empty();
+		setUp();
+		jR3DCarousel.showNextSlide();
+	})
+	
+	$('[name=slides]').change(function(){
+		carouselProps[this.name] = getSlides(this.value); 
+		for (var i = 0; i < 999; i++)
+	     clearInterval(i);
+		$('.jR3DCarouselGallery').empty();
+		setUp();
+		jR3DCarousel.showNextSlide();		
+	});
+	
+	function getSlides(no){
+		slides = [];
+		for ( var i = 0; i < no; i++) {
+			slides.push({src: 'https://unsplash.it/'+Math.floor(1366-Math.random()*200)+''+Math.floor(768+Math.random()*200)})
+		}
+		return slides;
+	}
+	
+	//carouselProps.slides = getSlides(7);
+	setUp()
+
+  })
+</script>
+
+</head>
+<body style="overflow-x:hidden">
+<!--顶部图片-->
+<div class="dingtp">
+<a href="index.html">
+<img src="images/dingtp.png">
+</div></a>
+<!--登录注册-->
+<div style="background-color: #f3f1f1;">
+<div class="dlu">
+<ul>
+<li>Hi，欢迎光临农产品网！<a href="index.html">首页</a></li>
+<li style="float: right; position: relative;right: 100px;">
+	<a href="dlu.html">登录</a>
+	<span>|</span>
+	<a href="zce.html">注册</a></li>
+</ul>
+</div>
+</div>
+<!--搜索块-->
+<div id="search">
+    <label for="search"></label>
+    <input type="text" name="q">
+    <input class="button" type="submit" value="搜索">
+  </div>
+  <!--导航条-->
+<div id="dht02">
+<ul>
+<li>
+<a  href="index.html">首页</a>
+</li>
+<li>
+<a href="2jym.html">山珍</a>
+</li>
+<li>
+<a>杂粮</a>
+</li>
+<li>
+<a>名酒</a>
+</li>
+<li>
+<a>加盟招商</a>
+</li>
+<li>
+<a>关于我们</a>
+</li>
+</div>
+<!--导航条结束-->
+<div class="jiange_w22"></div>
+<!--导航条和轮播图-->
+<div class="dadht">
+	<div class="tiaoz">
+<div class="daulli">
+<ul><span style="font-size:14px;font-weight: bold;padding-left: 47px;color: #fff; "><a>全部商品分类</a></span></ul>
+
+<div class="shucai">
+<ul><a><span  style="font-size:14px;font-weight: bold;padding-left: 47px;margin-right: 77px;opacity:1.0;" >山珍</span></a>
+<a  style="font-size:14px;font-weight: bold;">∨</a></ul>
+<div style="opacity: 0.7;">
+	<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+		<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+	<!--<ul style="padding-left: 22px;"><a href="">大白菜</a>&nbsp&nbsp&nbsp<a href="">小白菜</a>&nbsp&nbsp&nbsp<a href="">韭菜</a>&nbsp&nbsp&nbsp<a href="">黄瓜</a></ul>
+<ul style="padding-left: 22px;"><a href="">黄花菜</a>&nbsp&nbsp&nbsp<a href="">卷心菜</a>&nbsp&nbsp&nbsp<a href="">芦笋</a>&nbsp&nbsp&nbsp<a href="">莴苣</a></ul>--></div>
+</div>
+
+<div class="shuiguo">
+<ul><a><span  style="font-size:14px;font-weight: bold;padding-left: 47px;margin-right: 77px" >杂粮</span></a>
+<a  style="font-size:14px;font-weight: bold;">∨</a></ul>
+<div style="opacity: 0.7;">
+		<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+		<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+	<!--<ul style="padding-left: 22px;"><a href="">高粱米</a>&nbsp&nbsp&nbsp<a href="">稻花香</a>&nbsp&nbsp&nbsp<a href="">小米</a>&nbsp&nbsp&nbsp<a href="">黑米</a></ul>
+<ul style="padding-left: 22px;"><a href="">珍珠米</a>&nbsp&nbsp&nbsp<a href="">红小豆</a>&nbsp&nbsp&nbsp<a href="">燕麦</a>&nbsp&nbsp&nbsp<a href="">江米</a></ul>--></div>
+</div>
+
+<div class="lianyou">
+<ul><a><span  style="font-size:14px;font-weight: bold;padding-left: 47px;margin-right: 77px" >名酒</span></a>
+<a  style="font-size:14px;font-weight: bold;">∨</a></ul>
+<div style="opacity: 0.7;">
+			<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+		<div class="cxdht1">
+		<a>大白菜</a>
+		<a>小白菜</a>
+		<a>韭菜</a>
+		<a>黄瓜</a>
+	</div>
+	<!--<ul style="padding-left: 22px;"><a href="">葡萄酒</a>&nbsp&nbsp&nbsp<a href="">伏特加</a>&nbsp&nbsp&nbsp<a href="">韭菜</a>&nbsp&nbsp&nbsp<a href="">黄瓜</a></ul>
+<ul style="padding-left: 22px;"><a href="">鸡尾酒</a>&nbsp&nbsp&nbsp<a href="">小白菜</a>&nbsp&nbsp&nbsp<a href="">韭菜</a>&nbsp&nbsp&nbsp<a href="">黄瓜</a></ul>--></div>
+</div>
+</div>
+<!--动态效果-->
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".shucai").mouseenter(function(){
+    $(".shucai").css("background-color","#fff");
+$(".shucai a").css("color","#2fa134");
+  });
+  $(".shucai").mouseleave(function(){
+    $(".shucai").css("background-color","#2fa134");
+$(".shucai a").css("color","#fff");
+ });
+/* 蔬菜动态效果结束*/
+    $(".shuiguo").mouseenter(function(){
+    $(".shuiguo").css("background-color","#fff");
+$(".shuiguo a").css("color","#299030");
+  });
+  $(".shuiguo").mouseleave(function(){
+    $(".shuiguo").css("background-color","#299030");
+$(".shuiguo a").css("color","#fff");
+ });
+/* 水果动态效果结束*/
+    $(".lianyou").mouseenter(function(){
+    $(".lianyou").css("background-color","#fff");
+$(".lianyou a").css("color","#2fa134");
+  });
+  $(".lianyou").mouseleave(function(){
+    $(".lianyou").css("background-color","#2fa134");
+$(".lianyou a").css("color","#fff");
+ });
+ /* 粮油动态效果结束*/
+});
+</script>
+
+
+<!--轮播图-->
+<div class="xiaolbt">
+<div class="container"></div>
+		<div class="jR3DCarouselGallery"></div>
+</div>
+<!--轮播图结束-->
+<div class="right_news">
+<div class="gonggao">
+<div class="right_news_ul">
+<ul>
+<li style="	border-bottom: 1px solid #299030;
+	color: #299030;">网页公告</li>
+<li>最新资讯</li>
+</ul>
+</div>
+<div style="height: 1px;"></div>
+<div class="dawygg">
+<div class="wygg" style="display: block;">
+<ul>
+				<li><a href="">省农业厅办公室关于全力抓好油菜秋播工作的通知</a></li>
+				<li><a href="">荆州市人民政府关于在洪湖国家级自然保护区</a></li>
+				<li><a href="">湖北省2018年秋冬季主要农作物科学施肥指导意见</a></li>
+					</ul>
+</div>
+
+<div class="wyzx" style="display: none;">
+<ul>
+				<li><a href="">10月24日：“农产品批发价格200指数”比昨天下降0.06个点</a></li>
+				<li><a href="">10月23日：“农产品批发价格200指数”比昨天下降0.28个点</a></li>
+				<li><a href="">湖北天门萝卜抢鲜上市 弥补秋季蔬菜市场空缺 </a></li>
+					</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".right_news_ul ul li:eq(0)").click(function(){
+    $(".wygg").css("display","block");
+$(".wyzx").css("display","none");
+$(".right_news_ul ul li:eq(1)").css("border-bottom","0px solid #299030");
+$(".right_news_ul ul li:eq(1)").css("color","#000");
+$(".right_news_ul ul li:eq(0)").css("border-bottom","1px solid #299030");
+$(".right_news_ul ul li:eq(0)").css("color","#299030");
+  });
+    $(".right_news_ul ul li:eq(1)").click(function(){
+    $(".wygg").css("display","none");
+$(".wyzx").css("display","block");
+$(".right_news_ul ul li:eq(0)").css("border-bottom","0px solid #299030");
+$(".right_news_ul ul li:eq(0)").css("color","#000");
+$(".right_news_ul ul li:eq(1)").css("border-bottom","1px solid #299030");
+$(".right_news_ul ul li:eq(1)").css("color","#299030");
+  });
+   });
+ /* 网页公告动态效果结束*/
+</script>
+<!--网站公告结束--><br />
+<div class="yggao">
+<a href="">
+<img src="images/yguangao0.png">
+<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #000;">【江西水果】猕猴桃</span>
+<span style="display: block;color: #FE797D;font-weight: bold;font-size: 14px;">¥19.90/箱 
+<small style="font-size:10px; color:#999999; font-weight:normal;">起订量：10000箱</small>
+</span>
+</a>
+
+<a href="">
+<img src="images/yguangao1.png">
+<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #000;">【江西水果】猕猴桃</span>
+<span  style="display: block;color: #FE797D;font-weight: bold;font-size: 14px;">¥19.90/箱 
+<small style="font-size:10px; color:#999999; font-weight:normal;">起订量：10000箱</small>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!--导航条和轮播图结束-->
+<div class="jiange_w22"></div>
+<!--超级推荐开始-->
+<div class="ggts01">
+<div class="ggts02">
+<div class="zhi01">超级推荐<small style="font-size: 12px;">&nbsp;|&nbsp;万里挑一，选你满意！</small></div>
+<div class="gengduo01"><a href="" style="color: #fff;">更多...</a></div>
+</div>
+</div>
+<!--超级推荐结束-->
+<!--动态水果开始-->
+<div class="dongtaigg01">
+<ul class="dongtaigg01_01">
+<li class="qswl01">
+<a href="3jym.html" class="dongtaigg01_a">
+<img src="images/ina001.jpg" style="width: 235px;height: 235px;">
+<span class="sgm01">【两湖水果】山东烟台新鲜当季嘎啦苹果</span>
+<span class="sgjs01">新鲜有机水果</span>
+<span class="sgqdl01">起订量：10000</span>
+<span class="sg_jiage01">¥2.25</span>
+<input class="sg_dg01" type="button" value="立即抢购"  onclick="window.open('')">
+</a>
+</li>
+
+<li class="qswl01">
+<a href="3jym - 2.html" class="dongtaigg01_a">
+<img src="images/ina002.jpg" style="width: 235px;height: 235px;">
+<span class="sgm01">【两湖水果】河北正宗赵州雪花梨</span>
+<span class="sgjs01">慢生慢长鲜果 口感酥甜 汁多味浓</span>
+<span class="sgqdl01">起订量：10000</span>
+<span class="sg_jiage01">¥2.00</span>
+<input class="sg_dg01" type="button" value="立即抢购" onclick="window.open('')">
+</a>
+</li>
+<li class="qswl01">
+<a href="3jym - 3.html" class="dongtaigg01_a">
+<img src="images/ina003.jpg" style="width: 235px;height: 235px;">
+<span class="sgm01">【两湖水果】富有脆柿子 新鲜硬柿子</span>
+<span class="sgjs01">新鲜水果  富有甜脆柿</span>
+<span class="sgqdl01">起订量：10000</span>
+<span class="sg_jiage01">¥3.00</span>
+<input class="sg_dg01" type="button" value="立即抢购" onclick="window.open('')">
+</a>
+</li>
+<li class="qswl01">
+<a href="3jym - 4.html" class="dongtaigg01_a">
+<img src="images/ina004.jpg" style="width: 235px;height: 235px;">
+<span class="sgm01">【两湖水果】新鲜水果   云南蒙自石榴</span>
+<span class="sgjs01">新鲜水果   云南蒙自石榴</span>
+<span class="sgqdl01">起订量：10000</span>
+<span class="sg_jiage01">¥3.75</span>
+<input class="sg_dg01" type="button" value="立即抢购" onclick="window.open('')">
+</a>
+</li>
+<li class="qswl01">
+<a href="3jym - 5.html" class="dongtaigg01_a">
+<img src="images/ina005.jpg" style="width: 235px;height: 235px;">
+<span class="sgm01">【两湖水果】山东沾化冬枣</span>
+<span class="sgjs01">山东沾化冬枣</span>
+<span class="sgqdl01">起订量：10000</span>
+<span class="sg_jiage01">¥5.00</span>
+<input class="sg_dg01" type="button" value="立即抢购" onclick="window.open('')">
+</a>
+</li>
+</ul>
+</div>
+<!--动态水果结束-->
+<!--广告主体开始-->
+<div class="dazhonggg">
+<div class="jiange_w22"></div>
+<!--车厘子开始-->
+<div class="gg_clz">
+<a>
+<img src="images/extend_03.png">
+</a>
+</div>
+<!--车厘子结束-->
+<!--超级推荐开始-->
+<div class="ggts01">
+<div class="ggts02" style="left: 0;">
+<div class="zhi01">珍贵山珍<small style="font-size: 12px;">&nbsp;|&nbsp;精心为您挑选，每日劲爆价格！</small></div>
+<div class="gengduo01"><a href="" style="color: #fff;">更多...</a></div>
+</div>
+</div>
+<!--超级推荐结束-->
+<!--大酒开始-->
+<div class="dazhonggg_jiu">
+<div class="dajiu">
+<a href="">
+<img src="images/fl002-1.jpg" style="float: left;">
+<img src="images/fl002-2.jpg">
+</a>
+</div>
+<div class="xiaojiu">
+<ul>
+<li><a href=""><img src="images/15246461866950.jpg"></a></li>
+<li><a href=""><img src="images/1524646186974.jpg"></a></li>
+<li><a href=""><img src="images/15246461831570.jpg"></a></li>
+<li><a href=""><img src="images/15246461845361.jpg"></a></li>
+</ul>
+<ul style="position: relative;top: 7px;">
+<li><a href=""><img src="images/1524646184618.jpg"></a></li>
+<li><a href=""><img src="images/15246461859587.jpg"></a></li>
+<li><a href=""><img src="images/15246461856033.jpg"></a></li>
+<li><a href=""><img src="images/15246461853899.jpg"></a></li>
+</ul>
+</div>
+</div>
+<!--大酒结束-->
+<!--第一个大众广告结束-->
+<!--第二个推荐开始-->
+<div class="jiange_w22"></div>
+<div class="ggts01">
+<div class="ggts02" style="left: 0;">
+<div class="zhi01">五谷杂粮<small style="font-size: 12px;">&nbsp;|&nbsp;精心为您挑选，每日劲爆价格！</small></div>
+<div class="gengduo01"><a href="" style="color: #fff;">更多...</a></div>
+</div>
+</div>
+<!--第二个推荐开始-->
+<!--大酒开始-->
+<div class="dazhonggg_jiu">
+<div class="dajiu">
+<a href="">
+<img src="images/15246362424774.jpg" style="float: left;">
+<img src="images/15246362434646.jpg">
+</a>
+</div>
+<div class="xiaojiu">
+<ul>
+<li><a href=""><img src="images/15246362444187.jpg"></a></li>
+<li><a href=""><img src="images/15246362446652.jpg"></a></li>
+<li><a href=""><img src="images/15246362458021.jpg"></a></li>
+<li><a href=""><img src="images/15246362459747.jpg"></a></li>
+</ul>
+<ul style="position: relative;top: 7px;">
+<li><a href=""><img src="images/15246362462028.jpg"></a></li>
+<li><a href=""><img src="images/15246362465898.jpg"></a></li>
+<li><a href=""><img src="images/15246362445817.jpg"></a></li>
+<li><a href=""><img src="images/15246362476270.jpg"></a></li>
+</ul>
+</div>
+</div>
+<!--大酒结束-->
+<div class="jiange_w22"></div>
+<!--车厘子开始-->
+<div class="gg_clz">
+<a>
+<img src="images/extend_03.png">
+</a>
+</div>
+<!--车厘子开始-->
+<div class="jiange_w22"></div>
+<!--超级推荐-->
+<div class="ggts01">
+<div class="ggts02" style="left: 0;">
+<div class="zhi01">饮品名酒<small style="font-size: 12px;">&nbsp;|&nbsp;精心为您挑选，每日劲爆价格！</small></div>
+<div class="gengduo01"><a href="" style="color: #fff;">更多...</a></div>
+</div>
+</div>
+<!--超级推荐-->
+<!--大酒开始-->
+<div class="dazhonggg_jiu">
+<div class="dajiu">
+<a href="">
+<img src="images/fl003-1.jpg" style="float: left;">
+<img src="images/fl003-2.jpg">
+</a>
+</div>
+<div class="xiaojiu">
+<ul>
+<li><a href=""><img src="images/yp1.jpg"></a></li>
+<li><a href=""><img src="images/yp2.jpg"></a></li>
+<li><a href=""><img src="images/yp3.jpg"></a></li>
+<li><a href=""><img src="images/yp4.jpg"></a></li>
+</ul>
+<ul style="position: relative;top: 7px;">
+<li><a href=""><img src="images/yp5.jpg"></a></li>
+<li><a href=""><img src="images/yp6.jpg"></a></li>
+<li><a href=""><img src="images/yp7.jpg"></a></li>
+<li><a href=""><img src="images/yp8.jpg"></a></li>
+</ul>
+</div>
+</div>
+<!--大酒开始-->
+
+</div>
+<!--大重结束-->
+<!--最后开始-->
+<div class="wzmw">
+<div class="banner">
+<ul>
+<li>
+<img src="images/footer01.jpg">
+<h3 class="wzmw_lvzhi">全球精选</h3>
+<span>一站式生鲜农产品批发</span>
+</li>
+<li>
+<img src="images/footer02.jpg">
+<h3 class="wzmw_lvzhi">全球精选</h3>
+<span>一站式生鲜农产品批发</span>
+</li>
+<li>
+<img src="images/footer03.jpg">
+<h3 class="wzmw_lvzhi">全球精选</h3>
+<span>一站式生鲜农产品批发</span>
+</li>
+<li>
+<img src="images/footer04.jpg">
+<h3 class="wzmw_lvzhi">全球精选</h3>
+<span>一站式生鲜农产品批发</span>
+</li>
+</ul>
+</div>
+<div class="zuihou">
+<span>联系地址：吉安职业技术学院</span>
+<p>客服QQ: 471314748</p>
+</div>
+</div>
+</body>
+</html>
